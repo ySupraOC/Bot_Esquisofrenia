@@ -4,11 +4,12 @@ import json
 from discord.ext import commands
 from discord import app_commands
 
-MY_GUILD = discord.Object(id=1081377819864596571)
 
 with open("config.json") as e:
     config = json.load(e)
-    TOKEN = config["token"]
+    TOKEN = config["TOKEN"]
+
+MY_GUILD = discord.Object(id=1081377819864596571)
 
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
@@ -29,14 +30,14 @@ async def on_ready():
     print('------')
 
 
-# Comando Hello
+# Comando hello
 @client.tree.command()
 async def hello(interaction: discord.Interaction):
     """..."""
     await interaction.response.send_message(f'Olá, {interaction.user.mention} Bem vindo ao Clube da Progamação', ephemeral=True)
 
 
-# Comando Rules
+# Comando rules
 @client.tree.command()
 async def rules(interaction: discord.Interaction):
     """..."""
