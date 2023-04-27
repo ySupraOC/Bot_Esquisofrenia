@@ -7,7 +7,7 @@ from discord import app_commands
 
 with open("config.json") as e:
     config = json.load(e)
-    TOKEN = config["TOKEN"]
+    TOKEN = config["token"]
 
 MY_GUILD = discord.Object(id=1081377819864596571)
 
