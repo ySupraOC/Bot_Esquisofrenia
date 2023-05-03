@@ -9,7 +9,7 @@ with open("config.json") as e:    # Colocando o Arquivo config.json onde ficará
     config = json.load(e)
     TOKEN = config["token"]
 
-MY_GUILD = discord.Object(id=1081377819864596571)
+MY_GUILD = discord.Object(id=1081377819864596571)  # ID do servidor
 
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
@@ -24,7 +24,8 @@ intents = discord.Intents.default()
 client = commands.Bot(command_prefix=".", intents = discord.Intents.all())
 client = MyClient(intents=intents)
 
-@client.event
+
+@client.event    # Mostrar que o token está connectado ao servidor
 async def on_ready():
     print(f'Logged in as {client.user} (ID: {client.user.id})')
     print('------')
@@ -75,7 +76,7 @@ async def rules(interaction: discord.Interaction):
     embed.add_field(name= "**-> 09**", value= "```Tenha bom senso: Use o bom senso em todas as suas interações no servidor e lembre-se de que suas ações podem afetar os outros membros. Seja um membro responsável e contribua para criar um ambiente positivo e produtivo no servidor.```", inline= False)
     
     
-    #imagens e roda pé
+    #Imagens e Rodapé
     embed.set_image(url= "https://thumbs.gfycat.com/LimitedLonelyAsp-max-1mb.gif")
     embed.set_thumbnail(url= "https://i.pinimg.com/originals/c7/c4/6b/c7c46b55b96a5477d29c12dc023fc176.jpg")
     embed.set_footer(text= "© Todos os creditos do bot reservados ao ySupra#9509.")
