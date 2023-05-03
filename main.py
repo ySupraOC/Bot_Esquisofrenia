@@ -1,11 +1,11 @@
 from typing import Optional
-import discord
+import discord   # Importação do discord.py.
 import json
-from discord.ext import commands
+from discord.ext import commands   # Importação do commands do discord.
 from discord import app_commands
 
 
-with open("config.json") as e:
+with open("config.json") as e:    # Colocando o Arquivo config.json onde ficará seu token do bot.
     config = json.load(e)
     TOKEN = config["token"]
 
@@ -30,14 +30,14 @@ async def on_ready():
     print('------')
 
 
-# Comando hello
+# COMANDO HELLO (basico).
 @client.tree.command()
 async def hello(interaction: discord.Interaction):
     """..."""
     await interaction.response.send_message(f'Olá, {interaction.user.mention} Bem vindo ao Clube da Progamação', ephemeral=True)
 
 
-# Comando rules
+# COMANDO RULES (regras do servidor).
 @client.tree.command()
 async def rules(interaction: discord.Interaction):
     """..."""
@@ -82,4 +82,4 @@ async def rules(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
-client.run(TOKEN)
+client.run(TOKEN) # Mostrando para o codigo em qual token do discord, que é para se conectar ao servidor.
